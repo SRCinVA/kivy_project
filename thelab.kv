@@ -1,17 +1,28 @@
 BoxLayoutExample:
 
 <BoxLayoutExample>
-    orientation: "vertical"
+    orientation: "horizontal"
     Button:
         text: "A"
-        # size_hint: .8, .5  # this gives 80% of the width and 50% of the height compared to the other buttons
-        size_hint: .5, None # these are relative. You want 100% of width
+        size_hint: .5, .5  # this gives 80% of the width and 50% of the height compared to the other buttons
+        # size_hint: .5, None # these are relative. You want 100% of width
         height: "60dp" # here, you have fixed the height to 60dp, regardless of any shifts in the window.
-        pos_hint: {"x": .5} # ont eh x axis, you're "starting" at the 50% line (the middle)
-    Button:
-        text: "B"
-        size_hint: 1,2
-    Button:
+        pos_hint: {"center_y": .5}  # on the x axis, you're "starting" at the 75% line (the middle). 
+                                    # If you gave it "1," it would be completely outside the window.
+    
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+        Button:
+            text: "B4"
+
+    Label:
         text: "C"
 
 <MainWidget>:

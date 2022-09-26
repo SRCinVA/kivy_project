@@ -1,8 +1,12 @@
 from tkinter import VERTICAL
 from kivy.app import App
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
+
+class AnchorLayoutExample(AnchorLayout):
+    pass
 
 class BoxLayoutExample(BoxLayout):
     pass
