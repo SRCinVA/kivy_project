@@ -1,11 +1,27 @@
-AnchorLayoutExample:
+GridLayoutExample:
 
-<AnchorLayoutExample>:
-    anchor_x: "left"  # right, left, center (center is the default)
-    anchor_y: "top"  # bottom, top, center (center is the default)
+<GridLayoutExample@GridLayout>: # this is a direct invocation, so you don't need the Python code in the other file
+    # rows
+    # cols
+    cols: 2
     Button:
         text: "A"
-        size_hint: .1, .1
+    Button:
+        text: "B"
+    Button:
+        text: "C"
+
+<AnchorLayoutExample>:
+    anchor_x: "center"  # right, left, center (center is the default)
+    anchor_y: "top"  # bottom, top, center (center is the default)
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: "A"
+        
+        Button:
+            text: "B"
+
 
     # there is no stacking for widgets
 
