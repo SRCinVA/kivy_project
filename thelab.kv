@@ -3,13 +3,26 @@ GridLayoutExample:
 <GridLayoutExample@GridLayout>: # this is a direct invocation, so you don't need the Python code in the other file
     # rows
     # cols
-    cols: 2
+    rows: 2
     Button:
         text: "A"
-    Button:
-        text: "B"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample:
+    #Button:
+    #    text: "B"
     Button:
         text: "C"
+    Button:
+        text: "D"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text: "E"
+    Button:
+        text: "F"
+
+
 
 <AnchorLayoutExample>:
     anchor_x: "center"  # right, left, center (center is the default)
