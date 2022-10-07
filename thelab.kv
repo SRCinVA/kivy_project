@@ -1,11 +1,11 @@
 StackLayoutExample:
 
 <StackLayoutExample>
-
-#    Button:
-#       text: "A"
-#       size_hint: .2, .2 # defaults to top left corner 
-
+    # in stack layout, options are left/right|right/left and top/bottom|bottom/top (notice the contraction below)
+    # orientation: "rl-bt"
+    # here's how to include padding around the entire set of buttons:
+    # padding: ("20dp", "20dp", "20dp", "20dp") # it goes clockwise from the left.
+    spacing: "20dp", "20dp"
 <GridLayoutExample@GridLayout>: # this is a direct invocation, so you don't need the Python code in the other file
     # rows
     # cols

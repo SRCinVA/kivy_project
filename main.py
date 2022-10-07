@@ -11,6 +11,7 @@ from kivy.uix.widget import Widget
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor
         super().__init__(**kwargs)
+        # self.orientation = "lr-bt" this overrides the rl-tb default pattern.
         for i in range(0,10):  # you can create buttons with a loop as well
             size = dp(100) # here, 'size' is just a local variable, not a property
             b = Button(text=str(i+1), size_hint=(None, None), size=(size, size)) # we ran __init__ for Z, so it displayed first; then, the other buttons display.
