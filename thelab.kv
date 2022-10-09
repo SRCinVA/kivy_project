@@ -1,4 +1,17 @@
-StackLayoutExample:
+WidgetsExample:
+
+<WidgetsExample@GridLayout>: # this simplifies placing numerous widgets in the grid.
+    cols: 3
+    Button:
+        text: "Click here"
+    Label:
+        text: "Hello"
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:    
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
 
 <ScrollViewExample@ScrollView>: # this one is a view that can take on a child (in this case the stack layout)
     StackLayoutExample:
@@ -11,6 +24,7 @@ StackLayoutExample:
     # here's how to include padding around the entire set of buttons:
     # padding: ("20dp", "20dp", "20dp", "20dp") # it goes clockwise from the left.
     # spacing: "20dp", "20dp"
+
 <GridLayoutExample@GridLayout>: # this is a direct invocation, so you don't need the Python code in the other file
     # rows
     # cols
