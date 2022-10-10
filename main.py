@@ -1,12 +1,20 @@
 from tkinter import VERTICAL
 from kivy.app import App
 from kivy.metrics import dp
+from kivy.properties import StringProperty
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
+
+
+class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
+    my_text = StringProperty("Hello!")  # a custom property
+    def on_button_click(self):          # we're doing this to manage the button click
+        print("Button clicked")         # to test if the method is working
+        self.my_text = "You clicked!!"  # if you forgot 'self,' my_text would just be a local variable and (I suspect) would *not* be applied to Widget (which is what we want)
 
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor

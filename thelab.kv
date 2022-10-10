@@ -1,11 +1,12 @@
 WidgetsExample:
 
-<WidgetsExample@GridLayout>: # this simplifies placing numerous widgets in the grid.
+<WidgetsExample>: # this simplifies placing numerous widgets in the grid.
     cols: 3
     Button:
         text: "Click here"
+        on_press: root.on_button_click()  # this method is from main.py. "root" focuses the method on WidgetsExample. "self" would make it the button itself.
     Label:
-        text: "Hello"
+        text: root.my_text # this is "binding" this Label to 'my_text' (we seem to be using my_text as a variable for this property now.)
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    
