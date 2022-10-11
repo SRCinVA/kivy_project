@@ -11,10 +11,12 @@ from kivy.uix.widget import Widget
 
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
-    my_text = StringProperty("Hello!")  # a custom property
+    count = 1                           # need to put the counter first
+    my_text = StringProperty("1")       # a custom property, for which we just want to see "1"
     def on_button_click(self):          # we're doing this to manage the button click
         print("Button clicked")         # to test if the method is working
-        self.my_text = "You clicked!!"  # if you forgot 'self,' my_text would just be a local variable and (I suspect) would *not* be applied to Widget (which is what we want)
+        self.count += 1                 # use self., b/c we want it to refer to the overall class, which is where we defined the variable.
+        self.my_text = str(self.count)  # if you forgot 'self,' my_text would just be a local variable and (I suspect) would *not* be applied to Widget (which is what we prefer)
 
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor
