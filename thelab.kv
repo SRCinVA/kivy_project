@@ -2,11 +2,17 @@ WidgetsExample:
 
 <WidgetsExample>: # this simplifies placing numerous widgets in the grid.
     cols: 3
+    ToggleButton: # like a button but an on/off state (Button has no state)
+        text: "toggle"
+        on_state: root.on_toggle_button_state()  # notice that we toggle on the state
     Button:
-        text: "Click here"
+        text: "Count"
         on_press: root.on_button_click()  # this method is from main.py. "root" focuses the method on WidgetsExample. "self" would make it the button itself.
     Label:
         text: root.my_text # this is "binding" for this Label to 'my_text' (we seem to be using my_text as a variable for this property now.)
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+        color: 1, .5, 1, 1  # 100% red, 50% green, 100% blue, 100% opaque 
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    
