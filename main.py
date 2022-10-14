@@ -19,8 +19,13 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
         self.count += 1                 # use self., b/c we want it to refer to the overall class, which is where we defined the variable.
         self.my_text = str(self.count)  # if you forgot 'self,' my_text would just be a local variable and (I suspect) would *not* be applied to Widget (which is what we prefer)
 
-    def on_toggle_button_state(self):   # remember to pass 'self' here as well
-        print("toggle state")
+    def on_toggle_button_state(self, widget):   # remember to pass 'self' here as well
+        print("toggle state: " + widget.state)  # above, 'self' refers to the Widget class; 'widget' refers to the toggle button from the kivy file (could have used 'toggle_button', as an example). We will do this frequently. 
+                                                # above, this property will tell us if the toggle has been activated. 
+        if widget.state == "normal":
+            widget.text = "OFF" # with .text property, we directly change the widget's text itself
+        else:
+            widget.text = "ON"
 
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor

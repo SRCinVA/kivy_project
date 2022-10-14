@@ -3,8 +3,10 @@ WidgetsExample:
 <WidgetsExample>: # this simplifies placing numerous widgets in the grid.
     cols: 3
     ToggleButton: # like a button but an on/off state (Button has no state)
-        text: "toggle"
-        on_state: root.on_toggle_button_state()  # notice that we toggle on the state
+        text: "OFF"  # default display on the button itself
+        on_state: root.on_toggle_button_state(self)  # notice that we toggle on the state
+        size_hint: None, 1  # none for the width, and 100% (or full aspect) for the height.
+        width: "100dp"     # hard coding the width in at 100dp
     Button:
         text: "Count"
         on_press: root.on_button_click()  # this method is from main.py. "root" focuses the method on WidgetsExample. "self" would make it the button itself.
