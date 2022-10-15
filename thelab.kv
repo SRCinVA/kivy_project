@@ -10,6 +10,7 @@ WidgetsExample:
     Button:
         text: "Count"
         on_press: root.on_button_click()  # this method is from main.py. "root" focuses the method on WidgetsExample. "self" would make it the button itself.
+        disabled: not root.count_enabled  # when this property is False (implemnted through the 'not'), then the button will be disabled. 
     Label:
         text: root.my_text # this is "binding" for this Label to 'my_text' (we seem to be using my_text as a variable for this property now.)
         font_name: "fonts/Lcd.ttf"
