@@ -16,6 +16,16 @@ WidgetsExample:
         font_name: "fonts/Lcd.ttf"
         font_size: "80dp"
         color: 1, .5, 1, 1  # 100% red, 50% green, 100% blue, 100% opaque 
+    Switch:
+        on_active: root.on_switch_active(self)# for some reason, it's not "on state."
+        size_hint: None, 1  
+        width: "100dp" 
+    Slider:
+        min: 0      # default value
+        max: 100    # defualt value
+        value: 50   # this positions the slider to 50 upon starting
+        on_value: root.on_slider_value(self)
+        orientation: "vertical"
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    

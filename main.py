@@ -31,6 +31,12 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
             widget.text = "ON"
             self.count_enabled = True    # this is change the Boolean one way or another
 
+    def on_switch_active(self, widget): # 'self' refers to the Widget class; 'widget' refers to the switch from the kivy file.
+        print("Switch:" + str(widget.active))  # the .active property of the widget is a Boolean, so we'll need to convert it into a string.
+
+    def on_slider_value(self, widget):
+        print("Slider: " + str(widget.value))
+
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor
         super().__init__(**kwargs)
