@@ -1,4 +1,5 @@
 from tkinter import VERTICAL
+from tokenize import String
 from kivy.app import App
 from kivy.metrics import dp
 from kivy.properties import StringProperty, BooleanProperty
@@ -14,7 +15,8 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
     count_enabled = BooleanProperty(False)
     my_text = StringProperty("1")       # a custom property, for which we just want to see "1"
-    
+    # slider_value_text = StringProperty("Value")  # this is just a default for before we start moving the slider.
+
     def on_button_click(self):          # we're doing this to manage the button click
         print("Button clicked")         # to test if the method is working
         if self.count_enabled == True:  # this has to actually be "ON" (changed to "True" down below) for 'count' to increment at all.
@@ -35,7 +37,8 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
         print("Switch:" + str(widget.active))  # the .active property of the widget is a Boolean, so we'll need to convert it into a string.
 
     def on_slider_value(self, widget):
-        print("Slider: " + str(widget.value))
+        print("Slider: " + str(int(widget.value)))  # it was a float, but we wanted an int.
+        # self.slider_value_text = str(int(widget.value))
 
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor

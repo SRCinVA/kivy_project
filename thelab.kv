@@ -21,11 +21,15 @@ WidgetsExample:
         size_hint: None, 1  
         width: "100dp" 
     Slider:
+        id: my_slider # 'id' makes it possible to ue a variable inside the kivy file.
         min: 0      # default value
         max: 100    # defualt value
         value: 50   # this positions the slider to 50 upon starting
         on_value: root.on_slider_value(self)
         orientation: "vertical"
+    Label:
+        # text: root.slider_value_text  # for some reason, don't pass in 'self' for Labels.
+        text: str(int(my_slider.value)) # incredibly efficient syntax here ...
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    
