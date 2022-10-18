@@ -36,9 +36,9 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     def on_switch_active(self, widget): # 'self' refers to the Widget class; 'widget' refers to the switch from the kivy file.
         print("Switch:" + str(widget.active))  # the .active property of the widget is a Boolean, so we'll need to convert it into a string.
 
-    def on_slider_value(self, widget):
-        print("Slider: " + str(int(widget.value)))  # it was a float, but we wanted an int.
-        # self.slider_value_text = str(int(widget.value))
+    # def on_slider_value(self, widget):  with the ID in place fo the slider, we don't need this line anymore.
+    #   print("Slider: " + str(int(widget.value)))  # it was a float, but we wanted an int.
+    #   self.slider_value_text = str(int(widget.value))
 
 class StackLayoutExample(StackLayout):
     def __init__(self,**kwargs): # this is the basic form for the constructor
