@@ -30,9 +30,13 @@ WidgetsExample:
         # on_value: root.on_slider_value(self)  with the ID in palce, we don't need this line anymore.
         orientation: "vertical"
         disabled: not my_switch.active  # behavior of the Slider depends on Switch (when Switch is not active, Slider is disabled.)
-    Label:
-        # text: root.slider_value_text  # for some reason, don't pass in 'self' for Labels.
-        text: str(int(my_slider.value)) # this serves as the binding for the SLider widget (very efficient syntax)
+    BoxLayout:  # this is a smaller unit that stacks the Label and the Progress Bar together.
+        orientation: "vertical"
+        Label:
+            text: str(int(my_slider.value)) # this serves as the binding for the SLider widget (very efficient syntax)
+        ProgressBar:
+            max: 100  # default for min is 0 and it can't be changed.
+            value: my_slider.value  # binds the Progress Bar to the Slider
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    
