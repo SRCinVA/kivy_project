@@ -37,6 +37,16 @@ WidgetsExample:
         ProgressBar:
             max: 100  # default for min is 0 and it can't be changed.
             value: my_slider.value  # binds the Progress Bar to the Slider
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1  
+        width: "100dp" 
+        text: "foo"
+        multiline: False  # the default is true
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "Your name is: " + root.text_input_str # binds the label to the widget
+                                                    # you can also concatenate strings within teh label
 
 <PageLayoutExample@PageLayout>:
     MainWidget:    

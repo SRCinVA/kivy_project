@@ -15,6 +15,7 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
     count_enabled = BooleanProperty(False)
     my_text = StringProperty("1")       # a custom property, for which we just want to see "1"
+    text_input_str = StringProperty("foo") # the default, which we can change later
     # slider_value_text = StringProperty("Value")  # this is just a default for before we start moving the slider.
 
     def on_button_click(self):          # we're doing this to manage the button click
@@ -35,6 +36,9 @@ class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
 
     def on_switch_active(self, widget): # 'self' refers to the Widget class; 'widget' refers to the switch from the kivy file.
         print("Switch:" + str(widget.active))  # the .active property of the widget is a Boolean, so we'll need to convert it into a string.
+
+    def on_text_validate(self, widget):
+        self.text_input_str = widget.text  # (possibly): the var tex_input_str is set equal to the input in the text box
 
     # def on_slider_value(self, widget):  with the ID in place fo the slider, we don't need this line anymore.
     #   print("Slider: " + str(int(widget.value)))  # it was a float, but we wanted an int.
