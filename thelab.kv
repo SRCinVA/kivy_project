@@ -1,4 +1,16 @@
-WidgetsExample:
+ImagesExample:
+
+<ImagesExample@GridLayout>:
+    cols: 3
+    Image: 
+        source: "images/cake.jpg"
+    Image: 
+        source: "images/cake.jpg"    
+        allow_stretch: True
+    Image: 
+        source: "images/cake.jpg"
+        allow_stretch: True
+        keep_ratio: False  # this lines allows the aspect ratio to change (it needs allwo stretch to work)
 
 <WidgetsExample>: # this simplifies placing numerous widgets in the grid.
     cols: 3
