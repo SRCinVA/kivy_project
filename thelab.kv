@@ -1,10 +1,18 @@
 CanvasExample1:
 
+# directly below is how variables are established:
+
+#:set s dp(150) # examples are used below; dp is the best practice for sizing.
+
+
 <CanvasExample1>:
-    canvas:
-        Rectangle:  # default is white, 100*100 pixels
-            pos: dp(100), dp(200)
-            size: dp(150), dp(150)
+    canvas: # syntax for a canvas is differnt from syntaxi for a widget
+        Rectangle:  # the default is white, 100*100 pixels
+            pos: self.center_x-s/2, self.center_y-s/2  # this centers the square. The rectangle is "rooted" at the lower left, so we have to nudge it around by dividing the height and width by half.
+            size: s, s 
+        Ellipse:
+
+
 
 <ImagesExample@GridLayout>:
     cols: 3
