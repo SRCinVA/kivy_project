@@ -8,8 +8,13 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+# from kivy.lang import Builder
 from kivy.uix.widget import Widget
 
+# Builder.load_file("thelab.kv")
+
+class CanvasExample1(Widget):
+    pass
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first

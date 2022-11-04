@@ -1,18 +1,18 @@
-CanvasExample1:
+CanvasExample1: # unlike in his file, the declaration is required
 
-# directly below is how variables are established:
-
-#:set s dp(150) # examples are used below; dp is the best practice for sizing.
-
+#: set s dp(150) # this is how to declare variables
 
 <CanvasExample1>:
-    canvas: # syntax for a canvas is differnt from syntaxi for a widget
-        Rectangle:  # the default is white, 100*100 pixels
-            pos: self.center_x-s/2, self.center_y-s/2  # this centers the square. The rectangle is "rooted" at the lower left, so we have to nudge it around by dividing the height and width by half.
-            size: s, s 
+    canvas:      
+        Rectangle:  
+            pos: self.center_x-s/2, self.center_y-s/2 # centering is rooted at the bottom left, so we need to "help" it get to the true middle.
+            size: s, s
         Ellipse:
-
-
+            pos: 200, 500
+            size: s, s/2 # cut the height in half to make an ellipse
+        Line:
+            points: (0, 0, 100, 100, 200, 0, self.width, 100)   # a tuple to define segments (however many); (0,0) is the lower bottom left of the entire box
+                                                                # self.width pushes it all the way to the extreme right.
 
 <ImagesExample@GridLayout>:
     cols: 3
