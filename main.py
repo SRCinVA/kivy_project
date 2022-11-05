@@ -16,6 +16,9 @@ from kivy.uix.widget import Widget
 class CanvasExample1(Widget):
     pass
 
+class CanvasExample2(Widget):
+    pass
+
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
     count_enabled = BooleanProperty(False)

@@ -11,8 +11,12 @@ CanvasExample1: # unlike in his file, the declaration is required
             pos: 200, 500
             size: s, s/2 # cut the height in half to make an ellipse
         Line:
-            points: (0, 0, 100, 100, 200, 0, self.width, 100)   # a tuple to define segments (however many); (0,0) is the lower bottom left of the entire box
-                                                                # self.width pushes it all the way to the extreme right.
+            points: (0, 0, self.width/4, 100, self.width/2, 0, self.width*3/4, 100, self.width, 0)  # a tuple to define segments (however many); (0,0) is the lower bottom left of the entire box
+            width: 2                                                                                # self.width pushes it all the way to the extreme right.
+                                                                                                    # this makes a responsive "springing" line
+<CanvasExample2>:
+    canvas:
+
 
 <ImagesExample@GridLayout>:
     cols: 3
