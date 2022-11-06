@@ -19,6 +19,9 @@ class CanvasExample1(Widget):
 class CanvasExample2(Widget):
     pass
 
+class CanvasExample3(Widget):
+    pass
+
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
     count_enabled = BooleanProperty(False)
