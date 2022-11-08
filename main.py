@@ -8,6 +8,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.graphics.vertex_instructions import Line
 # from kivy.lang import Builder
 from kivy.uix.widget import Widget
 
@@ -21,6 +22,12 @@ class CanvasExample2(Widget):
 
 class CanvasExample3(Widget):
     pass
+
+class CanvasExample4(Widget):  # you could code a loop her to display many shapes in the canvas.
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        with self.canvas:   # write the canvas instructions here
+            Line(points=(100, 100, 400, 500))  # had to import Line up top.
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
