@@ -1,3 +1,4 @@
+from curses.textpad import rectangle
 from tkinter import VERTICAL
 from tokenize import String
 from kivy.app import App
@@ -8,7 +9,9 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Line
+from kivy.graphics.vertex_instructions import Rectangle
 # from kivy.lang import Builder
 from kivy.uix.widget import Widget
 
@@ -27,7 +30,11 @@ class CanvasExample4(Widget):  # you could code a loop her to display many shape
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         with self.canvas:   # write the canvas instructions here
-            Line(points=(100, 100, 400, 500))  # had to import Line up top.
+            Line(points=(100, 100, 400, 500), width=2)  # had to import Line up top.
+            Color(0,1,0 )
+            Line(circle=(400, 200, 80), width=2) # circle is a property, so it needs an equal sign
+            Line(rectangle=(700, 500, 150, 100), width = 5)
+            Rectangle(pos=(700,200), size=(150,100))
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
