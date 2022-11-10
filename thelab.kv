@@ -3,6 +3,12 @@ CanvasExample4: # unlike in his file, the declaration is required
 #: set s dp(150) # this is how to declare variables
 
 
+<CanvasExample4>:
+    Button:
+        pos: 100, 400
+        text: "A"
+        on_press: root.on_button_a_click() # make sure to have this function in main.py
+
 <CanvasExample3>:
     canvas:
         Color:  # color is an instruction, not a property.

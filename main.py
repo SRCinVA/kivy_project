@@ -12,6 +12,7 @@ from kivy.uix.button import Button
 from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Line
 from kivy.graphics.vertex_instructions import Rectangle
+from kivy import metrics
 # from kivy.lang import Builder
 from kivy.uix.widget import Widget
 
@@ -34,7 +35,14 @@ class CanvasExample4(Widget):  # you could code a loop her to display many shape
             Color(0,1,0 )
             Line(circle=(400, 200, 80), width=2) # circle is a property, so it needs an equal sign
             Line(rectangle=(700, 500, 150, 100), width = 5)
-            Rectangle(pos=(700,200), size=(150,100))
+            self.rect = Rectangle(pos=(700,200), size=(150,100)) # turn this into an instance variable, so you can use it in def on_button_a_click()
+
+    def on_button_a_click(self):
+        # print("foo")
+        x, y = self.rect.pos
+        x += dp(10)
+        self.rect.pos = (x, y)# goal is to change position of the rectangle.
+
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
