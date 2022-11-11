@@ -13,6 +13,7 @@ from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Line
 from kivy.graphics.vertex_instructions import Rectangle
 from kivy import metrics
+from kivy.core.window import Window
 # from kivy.lang import Builder
 from kivy.uix.widget import Widget
 
@@ -40,7 +41,13 @@ class CanvasExample4(Widget):  # you could code a loop her to display many shape
     def on_button_a_click(self):
         # print("foo")
         x, y = self.rect.pos
-        x += dp(10)
+        w, h = self.rect.size # size of the rectangle itself
+        inc = dp(10)
+        
+        diff = self.width - (x+w) # whatever the x position (bottom left corner) plus the lower base of the rectangle. self.width is for the entire screen.
+        if diff <= inc: # not sure I see how this one works
+            inc = diff
+        x += inc # with this change, we are constantly updating the tuple, because tuples are immutable
         self.rect.pos = (x, y)# goal is to change position of the rectangle.
 
 
