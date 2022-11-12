@@ -3,7 +3,7 @@ from tkinter import VERTICAL
 from tokenize import String
 from kivy.app import App
 from kivy.metrics import dp
-from kivy.properties import StringProperty, BooleanProperty
+from kivy.properties import StringProperty, BooleanProperty, Clock
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
@@ -55,10 +55,15 @@ class CanvasExample5(Widget):
         self.ball_size = dp(50)
         with self.canvas:   # write the canvas instructions here
             self.ball = Ellipse(pos=self.center, size=(self.ball_size, self.ball_size))
-
+            Clock.schedule_interval(self.update, 1/60) # gets the ball to move automatically, wiht intervals by seconds.
+    
     def on_size(self, *args):
         # print("on size : " + str(self.width) + ", " + str(self.height))
         self.ball.pos = (self.center_x-self.ball_size/2, self.center_y-self.ball_size/2)
+
+    def update(self, dt):  # 'dt' is delta time, which is required for all functions that use 'schedule'
+        x, y = self.ball.pos # note that you defined 'self.ball.pos' in the previous function.
+        self.ball.pos = (x+10, y)
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
