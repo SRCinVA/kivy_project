@@ -10,8 +10,7 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.graphics.context_instructions import Color
-from kivy.graphics.vertex_instructions import Line
-from kivy.graphics.vertex_instructions import Rectangle
+from kivy.graphics.vertex_instructions import Line, Rectangle, Ellipse
 from kivy import metrics
 from kivy.core.window import Window
 # from kivy.lang import Builder
@@ -42,14 +41,24 @@ class CanvasExample4(Widget):  # you could code a loop her to display many shape
         # print("foo")
         x, y = self.rect.pos
         w, h = self.rect.size # size of the rectangle itself
-        inc = dp(10)
+        inc = dp(10) # the "increment" of movement
         
-        diff = self.width - (x+w) # whatever the x position (bottom left corner) plus the lower base of the rectangle. self.width is for the entire screen.
+        diff = self.width - (x+w) # whatever the x position (bottom left corner) plus the lower base of the rectangle. self.width is for the entire screen and it always updates.
         if diff <= inc: # not sure I see how this one works
             inc = diff
         x += inc # with this change, we are constantly updating the tuple, because tuples are immutable
         self.rect.pos = (x, y)# goal is to change position of the rectangle.
 
+class CanvasExample5(Widget):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.ball_size = dp(50)
+        with self.canvas:   # write the canvas instructions here
+            self.ball = Ellipse(pos=self.center, size=(self.ball_size, self.ball_size))
+
+    def on_size(self, *args):
+        # print("on size : " + str(self.width) + ", " + str(self.height))
+        self.ball.pos = (self.center_x-self.ball_size/2, self.center_y-self.ball_size/2)
 
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
