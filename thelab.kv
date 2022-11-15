@@ -1,8 +1,34 @@
-CanvasExample5:
+CanvasExample6:
+
+# CanvasExample5:
 
 # CanvasExample4: # unlike in his file, the declaration is required
 
 #: set s dp(150) # this is how to declare variables
+
+<CanvasExample6>:
+    BoxLayout
+        size: root.size # root.size will fill in the entire layout
+        Widget:
+            canvas:
+                Color:
+                    rgb: 0,1,0
+                Rectangle:
+                    size: self.size # self.size will just fill in the Widget
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgb: 0,0,1
+                Rectangle:
+                    size: self.size
+                    # pos: self.pos # this moves the rectangle (probably to the Widget itself)
+                                    # the left one didn't need this, because the Widget defaults to 0, 0 (the bottom left corner).
+
+    # Button:  # note that the order of instructions matters. The button is drawn first, then the rectangle overlays it.
+    #    canvas:  # 'canvas.before' would place the rectangle on top of the button.
+    #        Rectangle:
+    #    text: "A"
+    #    pos: 100, 100
 
 
 <CanvasExample4>:

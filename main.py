@@ -88,6 +88,9 @@ class CanvasExample5(Widget):
 
         self.ball.pos = (x, y)
 
+class CanvasExample6(Widget):
+    pass
+
 class WidgetsExample(GridLayout):       # don't know why he's passing GridLayout
     count = 1                           # need to put the counter first
     count_enabled = BooleanProperty(False)
